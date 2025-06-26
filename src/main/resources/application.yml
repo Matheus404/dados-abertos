@@ -1,0 +1,33 @@
+# Configurações do servidor
+server:
+  port: 8082
+  servlet:
+    context-path: /api
+
+# Configurações gerais da aplicação
+spring:
+  application:
+    name: dados-abertos
+
+  # Banco de dados (PostgreSQL + HikariCP)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dados-abertos-nf
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      pool-name: HikariPostgreSQLPool
+
+  # Configurações do JPA/Hibernate
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
