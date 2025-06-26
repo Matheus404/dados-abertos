@@ -53,7 +53,7 @@ public class NotaFiscal {
     private LocalDateTime dataHoraEventoRecente;
 
     @Column(name = "cpf_cnpj_emitente")
-    private String cpgfOuCnpjFornecedor;
+    private String cpfOuCnpjFornecedor;
 
     @Column(name = "cnpj_destinatario")
     private String cnpjOrgao;

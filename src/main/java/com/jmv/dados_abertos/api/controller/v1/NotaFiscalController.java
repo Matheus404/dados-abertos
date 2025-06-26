@@ -19,9 +19,17 @@ public class NotaFiscalController {
     private final NotaFiscalService notaFiscalService;
 
     @GetMapping
-    public Page<NotaFiscal> listarNotasFiscaisApi(@RequestParam(defaultValue = "0") int page,
-                                                  @RequestParam(defaultValue = "10") int size) {
-        return notaFiscalService.listarNotasFiscais(page, size);
+    public Page<NotaFiscal> listarNotasFiscaisApi(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) String cpfOuCnpjFornecedor,
+            @RequestParam(required = false) String cnpjOrgao,
+            @RequestParam(required = false) String nomeOrgao,
+            @RequestParam(required = false) String razaoSocialFornecedor,
+            @RequestParam(required = false) Integer numero
+    ) {
+        return notaFiscalService.listarNotasFiscaisFiltradas(
+                page, size, cpfOuCnpjFornecedor, cnpjOrgao, nomeOrgao, razaoSocialFornecedor, numero);
     }
 
     @GetMapping("/chave-acesso")

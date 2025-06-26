@@ -5,6 +5,8 @@ import com.jmv.dados_abertos.repository.NotaFiscalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,4 +23,43 @@ public class NotaFiscalService {
         return notaFiscalRepository.findByChaveAcesso(chaveAcesso)
                 .orElseThrow(() -> new RuntimeException("Nota fiscal não encontrada com a chave de acesso: " + chaveAcesso));
     }
+
+    public Page<NotaFiscal> listarNotasFiscaisFiltradas(int page, int size,
+                                                        String cpfOuCnpjFornecedor,
+                                                        String cnpjOrgao,
+                                                        String nomeOrgao,
+                                                        String razaoSocialFornecedor,
+                                                        Integer numero
+    ) {
+        Specification<NotaFiscal> spec = Specification.allOf();
+
+        if (cpfOuCnpjFornecedor != null && !cpfOuCnpjFornecedor.isBlank()) {
+            spec = spec.and((root, query, cb) ->
+                    cb.equal(root.get("cpfOuCnpjFornecedor"), cpfOuCnpjFornecedor));
+        }
+
+        if (cnpjOrgao != null && !cnpjOrgao.isBlank()) {
+            spec = spec.and((root, query, cb) ->
+                    cb.equal(root.get("cnpjOrgao"), cnpjOrgao));
+        }
+
+        if (nomeOrgao != null && !nomeOrgao.isBlank()) {
+            spec = spec.and((root, query, cb) ->
+                    cb.like(cb.lower(root.get("orgaoPublico").get("nome")), "%" + nomeOrgao.toLowerCase() + "%"));
+        }
+
+        if (razaoSocialFornecedor != null && !razaoSocialFornecedor.isBlank()) {
+            spec = spec.and((root, query, cb) ->
+                    cb.like(cb.lower(root.get("fornecedor").get("razaoSocial")), "%" + razaoSocialFornecedor.toLowerCase() + "%"));
+        }
+
+        if (numero != null) {
+            spec = spec.and((root, query, cb) ->
+                    cb.equal(root.get("numero"), numero));
+        }
+
+        Pageable pageable = PageRequest.of(page, size);
+        return notaFiscalRepository.findAll(spec, pageable);
+    }
+
 }
