@@ -1,4 +1,4 @@
-package com.jmv.dados_abertos.model;
+package com.jmv.dadosabertos.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;

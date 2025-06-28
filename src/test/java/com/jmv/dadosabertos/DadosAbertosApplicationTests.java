@@ -1,4 +1,4 @@
-package com.jmv.dados_abertos;
+package com.jmv.dadosabertos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

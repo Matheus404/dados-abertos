@@ -1,4 +1,4 @@
-package com.jmv.dados_abertos.model;
+package com.jmv.dadosabertos.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

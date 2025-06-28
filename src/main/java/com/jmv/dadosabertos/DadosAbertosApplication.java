@@ -1,4 +1,4 @@
-package com.jmv.dados_abertos;
+package com.jmv.dadosabertos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,6 +1,6 @@
-package com.jmv.dados_abertos.repository;
+package com.jmv.dadosabertos.repository;
 
-import com.jmv.dados_abertos.model.NotaFiscal;
+import com.jmv.dadosabertos.model.NotaFiscal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;

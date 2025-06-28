@@ -1,7 +1,7 @@
-package com.jmv.dados_abertos.service;
+package com.jmv.dadosabertos.service;
 
-import com.jmv.dados_abertos.model.NotaFiscal;
-import com.jmv.dados_abertos.repository.NotaFiscalRepository;
+import com.jmv.dadosabertos.model.NotaFiscal;
+import com.jmv.dadosabertos.repository.NotaFiscalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

@@ -1,4 +1,4 @@
-package com.jmv.dados_abertos.enumeration;
+package com.jmv.dadosabertos.enumeration;
 
 import java.util.Arrays;
 import java.util.Optional;

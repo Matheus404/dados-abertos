@@ -1,6 +1,6 @@
-package com.jmv.dados_abertos.model;
+package com.jmv.dadosabertos.model;
 
-import com.jmv.dados_abertos.enumeration.UnidadeFederativa;
+import com.jmv.dadosabertos.enumeration.UnidadeFederativa;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
