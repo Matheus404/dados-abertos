@@ -1,5 +1,6 @@
 package com.jmv.dadosabertos.service;
 
+import com.jmv.dadosabertos.exception.EntidadeNaoEncontradaException;
 import com.jmv.dadosabertos.model.NotaFiscal;
 import com.jmv.dadosabertos.repository.NotaFiscalRepository;
 import lombok.RequiredArgsConstructor;
@@ -60,6 +61,14 @@ public class NotaFiscalService {
 
         Pageable pageable = PageRequest.of(page, size);
         return notaFiscalRepository.findAll(spec, pageable);
+    }
+
+    public NotaFiscal findByIdNota(Integer id) {
+        return notaFiscalRepository.findById(id)
+                .orElseThrow(() -> new EntidadeNaoEncontradaException(
+                                String.format("Nota fiscal não encontrada com id: %d", id)
+                        )
+                );
     }
 
 }
