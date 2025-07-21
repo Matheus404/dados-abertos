@@ -12,11 +12,13 @@ public class ResumoNotasPorEstadoDTO {
     private UnidadeFederativa uf;
     private Long quantidadeNotas;
     private BigDecimal valorTotalNotas;
+    private String ufNome;
 
     public ResumoNotasPorEstadoDTO(UnidadeFederativa uf, Long quantidadeNotas, BigDecimal valorTotalNotas) {
         this.uf = uf;
         this.quantidadeNotas = quantidadeNotas;
         this.valorTotalNotas = valorTotalNotas;
+        this.ufNome = uf.getNome();
     }
 
 }
