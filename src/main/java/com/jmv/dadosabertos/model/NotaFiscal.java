@@ -76,7 +76,7 @@ public class NotaFiscal {
 
     @OneToOne
     @JoinColumn(name = "id_orgao")
-    private Oragao orgaoPublico;
+    private Orgao orgaoPublico;
 
     @OneToMany(mappedBy = "notaFiscal")
     private List<NotaItem> itens;
