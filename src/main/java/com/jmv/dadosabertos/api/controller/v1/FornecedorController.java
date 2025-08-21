@@ -35,7 +35,7 @@ public class FornecedorController {
     @GetMapping("/{id}")
     public FornecedorDTO buscarFornecedorApi(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size,
+            @RequestParam(defaultValue = "10") int size,
             @PathVariable Integer id
     ) {
         return fornecedorService.buscarFornecedorPorId(id, page, size);
