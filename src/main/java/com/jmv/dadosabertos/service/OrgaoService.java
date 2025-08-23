@@ -34,7 +34,7 @@ public class OrgaoService {
 
         if (uf != null && !uf.isBlank()) {
             spec = spec.and((root, query, cb) ->
-                    cb.equal(root.get("uf"), uf));
+                    cb.equal(root.get("uf"), uf.toUpperCase()));
         }
 
         Pageable  pageable = PageRequest.of(page, size);
