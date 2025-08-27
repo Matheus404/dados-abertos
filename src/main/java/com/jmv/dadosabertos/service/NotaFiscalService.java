@@ -78,4 +78,8 @@ public class NotaFiscalService {
         return notaFiscalRepository.buscarResumoNotasPorEstado();
     }
 
+    public long quantidadeNotasFiscais() {
+        return notaFiscalRepository.count();
+    }
+
 }

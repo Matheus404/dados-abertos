@@ -1,7 +1,10 @@
 package com.jmv.dadosabertos.api.controller.v1;
 
 import com.jmv.dadosabertos.api.controller.dto.resumo.ResumoNotasPorEstadoDTO;
+import com.jmv.dadosabertos.api.controller.dto.resumo.ResumoQuantidadesRegistrosDTO;
+import com.jmv.dadosabertos.service.FornecedorService;
 import com.jmv.dadosabertos.service.NotaFiscalService;
+import com.jmv.dadosabertos.service.OrgaoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,10 +20,21 @@ import java.util.List;
 public class GraficosController {
 
     private final NotaFiscalService notaFiscalService;
+    private final FornecedorService fornecedorService;
+    private final OrgaoService orgaoService;
 
     @GetMapping("/notas/uf/resumo")
     public List<ResumoNotasPorEstadoDTO> buscarResumoNotasPorEstadoApi() {
         return notaFiscalService.buscarResumoNotasPorEstadoService();
+    }
+
+    @GetMapping("contar/registros/resumo")
+    public ResumoQuantidadesRegistrosDTO resumoQuantidadeRegistrosApi() {
+        return ResumoQuantidadesRegistrosDTO.builder()
+                .quantidadeOrgaos(orgaoService.quantidadeOrgaos())
+                .quantidadeFornecedores(fornecedorService.quantidadeFornecedores())
+                .quantidadeNotasFiscais(notaFiscalService.quantidadeNotasFiscais())
+                .build();
     }
 
 }

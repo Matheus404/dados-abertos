@@ -71,4 +71,9 @@ public class FornecedorService {
         return fornecedorMapper.toDtoWithItens(fornecedor, itens);
     }
 
+    public long quantidadeFornecedores() {
+        return fornecedorRepository.count();
+    }
+
+
 }

@@ -41,4 +41,8 @@ public class OrgaoService {
         return orgaoRepository.findAll(spec, pageable);
     }
 
+    public long quantidadeOrgaos() {
+        return orgaoRepository.count();
+    }
+
 }
