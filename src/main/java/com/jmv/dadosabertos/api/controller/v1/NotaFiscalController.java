@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
+
 @RestController
 @RequestMapping("/v1/notas-fiscais")
 @RequiredArgsConstructor
@@ -41,6 +43,11 @@ public class NotaFiscalController {
     @GetMapping("/{id}")
     public NotaFiscal buscarNotaFiscalPorId(@PathVariable Integer id) {
         return notaFiscalService.findByIdNota(id);
+    }
+
+    @GetMapping("/valor-total-ano")
+    public BigDecimal valorTotalNotasAnoApi(@RequestParam int ano) {
+        return notaFiscalService.valorTotalNotasPorAno(ano);
     }
 
 }
