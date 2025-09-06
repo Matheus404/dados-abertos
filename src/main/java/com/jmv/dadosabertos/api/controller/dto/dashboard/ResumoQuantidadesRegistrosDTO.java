@@ -1,4 +1,4 @@
-package com.jmv.dadosabertos.api.controller.dto.resumo;
+package com.jmv.dadosabertos.api.controller.dto.dashboard;
 
 import lombok.Builder;
 import lombok.Getter;

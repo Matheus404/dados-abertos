@@ -1,6 +1,6 @@
 package com.jmv.dadosabertos.repository;
 
-import com.jmv.dadosabertos.api.controller.dto.resumo.ResumoNotasPorEstadoDTO;
+import com.jmv.dadosabertos.api.controller.dto.dashboard.ResumoNotasPorEstadoDTO;
 import com.jmv.dadosabertos.model.NotaFiscal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -18,7 +18,7 @@ public interface NotaFiscalRepository extends JpaRepository<NotaFiscal, Integer>
 
     Optional<NotaFiscal> findByChaveAcesso(String chaveAcesso);
 
-    @Query("SELECT new com.jmv.dadosabertos.api.controller.dto.resumo.ResumoNotasPorEstadoDTO(f.uf, COUNT(n), SUM(n.valorNotaFiscal)) " +
+    @Query("SELECT new com.jmv.dadosabertos.api.controller.dto.dashboard.ResumoNotasPorEstadoDTO(f.uf, COUNT(n), SUM(n.valorNotaFiscal)) " +
             "FROM NotaFiscal n " +
             "JOIN n.fornecedor f " +
             "GROUP BY f.uf " +

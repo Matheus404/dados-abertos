@@ -1,7 +1,7 @@
 package com.jmv.dadosabertos.api.controller.v1;
 
-import com.jmv.dadosabertos.api.controller.dto.resumo.ResumoNotasPorEstadoDTO;
-import com.jmv.dadosabertos.api.controller.dto.resumo.ResumoQuantidadesRegistrosDTO;
+import com.jmv.dadosabertos.api.controller.dto.dashboard.ResumoNotasPorEstadoDTO;
+import com.jmv.dadosabertos.api.controller.dto.dashboard.ResumoQuantidadesRegistrosDTO;
 import com.jmv.dadosabertos.service.FornecedorService;
 import com.jmv.dadosabertos.service.NotaFiscalService;
 import com.jmv.dadosabertos.service.OrgaoService;

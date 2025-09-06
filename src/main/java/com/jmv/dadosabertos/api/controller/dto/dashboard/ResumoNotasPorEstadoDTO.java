@@ -1,4 +1,4 @@
-package com.jmv.dadosabertos.api.controller.dto.resumo;
+package com.jmv.dadosabertos.api.controller.dto.dashboard;
 
 import com.jmv.dadosabertos.enumeration.UnidadeFederativa;
 import lombok.Getter;
