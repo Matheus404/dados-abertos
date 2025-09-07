@@ -1,5 +1,6 @@
 package com.jmv.dadosabertos.api.controller.v1;
 
+import com.jmv.dadosabertos.api.controller.dto.dashboard.ValorTotalNfAnoDTO;
 import com.jmv.dadosabertos.model.NotaFiscal;
 import com.jmv.dadosabertos.service.NotaFiscalService;
 import lombok.RequiredArgsConstructor;
@@ -46,8 +47,8 @@ public class NotaFiscalController {
     }
 
     @GetMapping("/valor-total-ano")
-    public BigDecimal valorTotalNotasAnoApi(@RequestParam int ano) {
-        return notaFiscalService.valorTotalNotasPorAno(ano);
+    public ValorTotalNfAnoDTO valorTotalNotasAnoApi(@RequestParam int ano) {
+        return new ValorTotalNfAnoDTO(notaFiscalService.valorTotalNotasPorAno(ano));
     }
 
 }
