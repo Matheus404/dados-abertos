@@ -48,7 +48,11 @@ public class NotaFiscalController {
 
     @GetMapping("/valor-total-ano")
     public ValorTotalNfAnoDTO valorTotalNotasAnoApi(@RequestParam int ano) {
-        return new ValorTotalNfAnoDTO(notaFiscalService.valorTotalNotasPorAno(ano));
+        BigDecimal valorTotal = notaFiscalService
+                .valorTotalNotasPorAno(ano) == null ?
+                    BigDecimal.ZERO : notaFiscalService.valorTotalNotasPorAno(ano);
+
+        return new ValorTotalNfAnoDTO(valorTotal);
     }
 
 }
