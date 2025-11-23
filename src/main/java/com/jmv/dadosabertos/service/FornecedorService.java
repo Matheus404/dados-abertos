@@ -1,5 +1,6 @@
 package com.jmv.dadosabertos.service;
 
+import com.jmv.dadosabertos.api.controller.dto.dashboard.ValorTotalFornecedorNfAnoDTO;
 import com.jmv.dadosabertos.api.controller.dto.fornecedor.FornecedorDTO;
 import com.jmv.dadosabertos.api.controller.dto.fornecedor.FornecedorItensDTO;
 import com.jmv.dadosabertos.exception.EntidadeNaoEncontradaException;
@@ -75,5 +76,8 @@ public class FornecedorService {
         return fornecedorRepository.count();
     }
 
+    public List<ValorTotalFornecedorNfAnoDTO> valorTotalPorFornecedor(int ano) {
+        return fornecedorRepository.fornecedorValorTotalAno(ano);
+    }
 
 }

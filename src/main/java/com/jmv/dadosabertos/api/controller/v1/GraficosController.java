@@ -2,6 +2,7 @@ package com.jmv.dadosabertos.api.controller.v1;
 
 import com.jmv.dadosabertos.api.controller.dto.dashboard.ResumoNotasPorEstadoDTO;
 import com.jmv.dadosabertos.api.controller.dto.dashboard.ResumoQuantidadesRegistrosDTO;
+import com.jmv.dadosabertos.api.controller.dto.dashboard.ValorTotalFornecedorNfAnoDTO;
 import com.jmv.dadosabertos.service.FornecedorService;
 import com.jmv.dadosabertos.service.NotaFiscalService;
 import com.jmv.dadosabertos.service.OrgaoService;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -35,6 +37,11 @@ public class GraficosController {
                 .quantidadeFornecedores(fornecedorService.quantidadeFornecedores())
                 .quantidadeNotasFiscais(notaFiscalService.quantidadeNotasFiscais())
                 .build();
+    }
+
+    @GetMapping("/fornecedores/valor-total")
+    public List<ValorTotalFornecedorNfAnoDTO> fornecedorValorTotalAnoApi(@RequestParam int ano) {
+        return fornecedorService.valorTotalPorFornecedor(ano);
     }
 
 }
