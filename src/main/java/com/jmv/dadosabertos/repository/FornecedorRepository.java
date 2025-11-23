@@ -18,7 +18,8 @@ public interface FornecedorRepository extends JpaRepository<Fornecedor, Integer>
            "FROM NotaFiscal n " +
            "JOIN n.fornecedor f " +
            "WHERE YEAR(n.dataEmissao) = :ano " +
-           "GROUP BY f.id, f.razaoSocial, f.cpfOuCnpj, f.uf ")
+           "GROUP BY f.id, f.razaoSocial, f.cpfOuCnpj, f.uf " +
+           "ORDER BY SUM(n.valorNotaFiscal) DESC")
     List<ValorTotalFornecedorNfAnoDTO> fornecedorValorTotalAno(@Param("ano") int ano);
 
 }
