@@ -77,7 +77,10 @@ public class FornecedorService {
     }
 
     public List<ValorTotalFornecedorNfAnoDTO> valorTotalPorFornecedor(int ano) {
-        return fornecedorRepository.fornecedorValorTotalAno(ano);
+        return fornecedorRepository.fornecedorValorTotalAno(ano)
+                .stream()
+                .limit(100)
+                .toList();
     }
 
 }
